@@ -1,4 +1,4 @@
-#include "ATCMD.hpp"
+#include "ATCMD.h"
 
 ATCMD* ATCMD::int_inst = NULL;
 

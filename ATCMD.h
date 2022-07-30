@@ -6,7 +6,7 @@
 class ATCMD {
 	
 		typedef struct {
-			char cmd[11];
+			char cmd[13];
 			int8_t (*callback)(uint8_t, char*, char*);
 		} TAT;
 		
@@ -98,9 +98,9 @@ class ATCMD {
 					  
 									params[i+1] = 0;
 									
-									if( strcmp("", params) == 0 ) return;
+										if( strcmp("", params) == 0 ) return;
 								}
-
+								
 						} else opt = 2;
 	  
 					buflen = strlen( buf );

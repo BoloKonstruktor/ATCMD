@@ -85,22 +85,22 @@ class ATCMD {
 									buf = strtok_r(buf, "?", &params);      
 								} else {
 									opt = 1;
-									buf = strtok_r(buf, "=", &params);  
-								}
-								
-							i = 0;
-				
-								while( params[i] == ' ' ) i++;
-							
-							params += i;
-							i = strlen(params)-1;
-				
-								while(params[i] == ' ' && i > 0) i--;
-			  
-							params[i+1] = 0;
-								
-								if(opt == 1 && strcmp("", params) == 0) return;
+									buf = strtok_r(buf, "=", &params);
+
+									i = 0;
+									
+										while( params[i] == ' ' && params[i] != 0 ) i++;
+									
+									params += i;
+									i = strlen(params)-1;
 						
+										while(params[i] == ' ' && i > 0) i--;
+					  
+									params[i+1] = 0;
+									
+									if( strcmp("", params) == 0 ) return;
+								}
+
 						} else opt = 2;
 	  
 					buflen = strlen( buf );

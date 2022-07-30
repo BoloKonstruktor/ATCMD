@@ -6,7 +6,7 @@
 class ATCMD {
 	
 		typedef struct {
-			char cmd[9];
+			char cmd[11];
 			int8_t (*callback)(uint8_t, char*, char*);
 		} TAT;
 		

@@ -35,6 +35,14 @@ int8_t ATCMD::ati_service( uint8_t inout, char * cmd, char * params ) {
 #ifdef ESP32
 			int_inst->serial->printf( "Chip model:\t%s Rev %d\n", ESP.getChipModel(), ESP.getChipRevision() );
 #endif
+#ifdef ESP8266
+			int_inst->serial->println();
+			int_inst->serial->printf( "Chip ID:\t\t%08x\n", ESP.getChipId() );
+			int_inst->serial->printf( "Flash chip ID:\t\t%08x\n", ESP.getFlashChipId() );
+			int_inst->serial->printf( "Flash chip freq.:\t%d (Hz)\n", ESP.getFlashChipSpeed() );
+			int_inst->serial->printf( "Flash chip size:\t%d (bytes)\n", ESP.getFlashChipSize() );
+			int_inst->serial->printf( "Free heap size:\t\t%d (bytes)\n", ESP.getFreeHeap() );
+#endif
 		}
 		
   return 0;

@@ -5,8 +5,10 @@
 
 class ATCMD {
 	
+		const uint8_t MAX_CMD_LENGTH = 12;
+	
 		typedef struct {
-			char cmd[13];
+			char* cmd;
 			int8_t (*callback)(uint8_t, char*, char*);
 		} TAT;
 		
@@ -51,6 +53,7 @@ class ATCMD {
 
 			this->idx = this->size-1;
 			auto& atlist = this->atlist[this->idx];
+			atlist.cmd = new char[strlen(cmd)+1];
 			strcpy( atlist.cmd, cmd );
 			atlist.callback = callback;
 			this->idx = 0;
